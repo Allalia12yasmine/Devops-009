@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: CI/CD Pipeline 2
 
 on:
   push:
@@ -25,15 +25,13 @@ jobs:
     needs: test
     steps:
       - uses: actions/checkout@v3
-        with:
-          path: site1  # assure que le runner voit bien le dossier site1
       - name: Log in to DockerHub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build Docker image
-        run: docker build -t docker.io/Allalia12yasmine/site1-image site1
+        run: docker build -t docker.io/Allalia12yasmine/site1-image ./site1
       - name: Push Docker image
         run: docker push docker.io/Allalia12yasmine/site1-image
 
