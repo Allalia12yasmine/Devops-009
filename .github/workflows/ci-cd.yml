@@ -31,9 +31,9 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build Docker image
-        run: docker build -t docker.io/allalia12yasmine/site1-image ./site1
+        run: docker build -t docker.io/Allalia12yasmine/site1-image ./site1
       - name: Push Docker image
-        run: docker push docker.io/allalia12yasmine/site1-image
+        run: docker push docker.io/Allalia12yasmine/site1-image
 
   # 3️⃣ Security Scanning with Trivy
   security_scan:
@@ -43,7 +43,7 @@ jobs:
       - name: Scan Docker image with Trivy
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: docker.io/allalia12yasmine/site1-image
+          image-ref: docker.io/Allalia12yasmine/site1-image
 
   # 4️⃣ Deployment stage
   deploy:
