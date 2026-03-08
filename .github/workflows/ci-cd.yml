@@ -25,6 +25,8 @@ jobs:
     needs: test
     steps:
       - uses: actions/checkout@v3
+        with:
+          path: site1  # assure que le runner voit bien le dossier site1
       - name: Log in to DockerHub
         uses: docker/login-action@v2
         with:
